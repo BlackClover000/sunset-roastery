@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>محمصة الغروب</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@600;700&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #eef3f0;
+        --fg: #0f3d3e;
+        --ac: #e0a100;
+        --mut: #4d6b68;
+        --hero: #0f3d3e;
+        --herofg: #f4f1e6;
+        --line: #c5d4cf;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0a2425;
+          --fg: #e8f1ee;
+          --ac: #f2c14e;
+          --mut: #9db8b3;
+          --hero: #0f3d3e;
+          --herofg: #f4f1e6;
+          --line: #1f4a4b;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0a2425;
+        --fg: #e8f1ee;
+        --ac: #f2c14e;
+        --mut: #9db8b3;
+        --hero: #0f3d3e;
+        --herofg: #f4f1e6;
+        --line: #1f4a4b;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          400 18px/1.8 Tajawal,
+          Tahoma,
+          sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Reem Kufi", Tajawal, sans-serif;
+        margin: 0;
+        line-height: 1.2;
+      }
+      .w {
+        max-width: 1000px;
+        margin: auto;
+        padding: 0 22px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+      nav b {
+        font:
+          700 24px "Reem Kufi",
+          sans-serif;
+      }
+      nav a {
+        color: inherit;
+        text-decoration: none;
+        margin-inline-start: 20px;
+        font-weight: 500;
+      }
+      .hero {
+        background: var(--hero);
+        color: var(--herofg);
+        padding-bottom: 64px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero nav a {
+        color: var(--herofg);
+      }
+      .hero h1 {
+        font-size: clamp(46px, 11vw, 110px);
+        margin-top: 48px;
+      }
+      .hero p {
+        max-width: 34ch;
+        font-size: 20px;
+        color: #cfe0db;
+      }
+      .sun {
+        position: absolute;
+        left: -90px;
+        bottom: -90px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: var(--ac);
+        opacity: 0.95;
+      }
+      .btn {
+        display: inline-block;
+        background: var(--ac);
+        color: #1b1500;
+        font-weight: 700;
+        padding: 12px 26px;
+        border-radius: 999px;
+        text-decoration: none;
+        margin-top: 12px;
+      }
+      .btn:focus-visible,
+      a:focus-visible {
+        outline: 3px solid var(--ac);
+        outline-offset: 3px;
+      }
+      section {
+        padding: 64px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      h2 {
+        font-size: 34px;
+        margin-bottom: 28px;
+      }
+      .menu {
+        display: grid;
+        gap: 0;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: baseline;
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+      }
+      .row h3 {
+        font-size: 24px;
+      }
+      .row span {
+        color: var(--mut);
+        display: block;
+        font-size: 16px;
+      }
+      .row em {
+        font:
+          700 22px "Reem Kufi",
+          sans-serif;
+        font-style: normal;
+        white-space: nowrap;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      @media (max-width: 700px) {
+        .two {
+          grid-template-columns: 1fr;
+        }
+        .sun {
+          width: 200px;
+          height: 200px;
+        }
+      }
+      footer {
+        padding: 40px 0;
+        color: var(--mut);
+      }
+      .row {
+        flex-wrap: wrap;
+      }
+      .qty {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-inline-start: auto;
+      }
+      .qty button {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid var(--fg);
+        background: none;
+        color: var(--fg);
+        font: 700 20px/1 sans-serif;
+        cursor: pointer;
+      }
+      .qty b {
+        min-width: 20px;
+        text-align: center;
+      }
+      .qty button:focus-visible,
+      .order button:focus-visible,
+      .order input:focus-visible {
+        outline: 3px solid var(--ac);
+        outline-offset: 2px;
+      }
+      .order {
+        margin-top: 36px;
+        padding: 28px;
+        border: 2px solid var(--fg);
+        border-radius: 18px;
+      }
+      .order h3 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+      .order ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 14px;
+      }
+      .order li {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-bottom: 1px dashed var(--line);
+      }
+      .order .empty {
+        color: var(--mut);
+      }
+      .order label {
+        display: block;
+        margin: 10px 0;
+      }
+      .order [hidden] {
+        display: none;
+      }
+      .order input[type="text"],
+      .order input[type="tel"] {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid var(--mut);
+        border-radius: 10px;
+        background: var(--bg);
+        color: var(--fg);
+        font: inherit;
+      }
+      .order .ty {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .order button.btn {
+        border: 0;
+        font:
+          700 18px Tajawal,
+          sans-serif;
+        cursor: pointer;
+      }
+      #oerr {
+        color: #c0392b;
+        min-height: 1.6em;
+        margin: 6px 0 0;
+      }
+      #ook {
+        background: var(--hero);
+        color: var(--herofg);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="w">
+        <nav>
+          <b>محمصة الغروب</b>
+          <div>
+            <a href="#menu">القائمة</a><a href="#story">قصتنا</a
+            ><a href="#visit">زورونا</a>
+          </div>
+        </nav>
+        <h1>قهوة تُحمَّص<br />على مهل</h1>
+        <p>
+          نحمّص حبوبنا يوميًا في دفعات صغيرة، ونقدّمها طازجة في الصباح الباكر.
+        </p>
+        <a class="btn" href="#menu">شاهد القائمة</a>
+      </div>
+    </header>
+    <main class="w">
+      <section id="menu">
+        <h2>القائمة</h2>
+        <div class="menu">
+          <div class="row">
+            <div>
+              <h3>إسبريسو</h3>
+              <span>مزيج إثيوبي وبرازيلي، قوام كثيف</span>
+            </div>
+            <em>35 ج</em>
+          </div>
+          <div class="row">
+            <div>
+              <h3>قهوة مختصة مقطّرة</h3>
+              <span>حبوب كولومبية، نكهة فاكهية خفيفة</span>
+            </div>
+            <em>60 ج</em>
+          </div>
+          <div class="row">
+            <div>
+              <h3>قهوة تركية بالهيل</h3>
+              <span>تُحضَّر على الرمل</span>
+            </div>
+            <em>30 ج</em>
+          </div>
+          <div class="row">
+            <div>
+              <h3>حبوب محمّصة، 250 جم</h3>
+              <span>للمنزل، تُطحن حسب طلبك</span>
+            </div>
+            <em>180 ج</em>
+          </div>
+        </div>
+        <div class="order" id="order">
+          <h3>اطلب من الموقع</h3>
+          <ul id="olist"></ul>
+          <b>الإجمالي: <span id="otot">0</span> ج</b>
+          <div class="ty">
+            <label
+              ><input type="radio" name="ty" value="استلام" checked /> استلام من
+              المحمصة</label
+            ><label><input type="radio" name="ty" value="توصيل" /> توصيل</label>
+          </div>
+          <label>الاسم<input type="text" id="on" autocomplete="name" /></label
+          ><label
+            >رقم الموبايل<input
+              type="tel"
+              id="op"
+              inputmode="tel"
+              placeholder="01xxxxxxxxx"
+              autocomplete="tel" /></label
+          ><label id="oaw" hidden
+            >عنوان التوصيل<input type="text" id="oa"
+          /></label>
+          <p id="oerr" role="alert"></p>
+          <button class="btn" id="osend" type="button">أرسل الطلب</button>
+          <div id="ook" hidden role="status"></div>
+        </div>
+      </section>
+      <section id="story" class="two">
+        <h2>قصتنا</h2>
+        <p>
+          بدأنا بمحمصة صغيرة على سطح بيت قديم. اليوم ما زلنا نشتري من مزارع
+          بعينها، ونحمّص بكميات تكفي أسبوعًا واحدًا فقط، حتى تصلك القهوة في أفضل
+          حالاتها.
+        </p>
+      </section>
+      <section id="visit">
+        <h2>زورونا</h2>
+        <p>
+          يوميًا من 7 صباحًا حتى 11 مساءً. العنوان وأرقام التواصل هنا (نص تجريبي
+          للعرض).
+        </p>
+        <a class="btn" href="mailto:hello@example.com">راسلنا</a>
+      </section>
+    </main>
+    <footer class="w">موقع تجريبي ضمن معرض أعمالي</footer>
+    <script>
+      (function () {
+        var it = [],
+          $ = function (i) {
+            return document.getElementById(i);
+          };
+        document.querySelectorAll(".row").forEach(function (r, i) {
+          var n = r.querySelector("h3").textContent,
+            p = parseInt(r.querySelector("em").textContent, 10);
+          it[i] = { n: n, p: p, q: 0 };
+          var q = document.createElement("div");
+          q.className = "qty";
+          q.innerHTML =
+            '<button type="button" aria-label="إنقاص ' +
+            n +
+            '">−</button><b aria-live="polite">0</b><button type="button" aria-label="إضافة ' +
+            n +
+            '">+</button>';
+          r.appendChild(q);
+          var b = q.children;
+          function s(d) {
+            it[i].q = Math.max(0, it[i].q + d);
+            b[1].textContent = it[i].q;
+            draw();
+          }
+          b[0].onclick = function () {
+            s(-1);
+          };
+          b[2].onclick = function () {
+            s(1);
+          };
+        });
+        function draw() {
+          var t = 0,
+            h = "";
+          it.forEach(function (x) {
+            if (x.q) {
+              t += x.q * x.p;
+              h +=
+                "<li><span>" +
+                x.n +
+                " × " +
+                x.q +
+                "</span><b>" +
+                x.q * x.p +
+                " ج</b></li>";
+            }
+          });
+          $("olist").innerHTML =
+            h ||
+            '<li class="empty">السلة فارغة. اضغط + بجانب أي صنف في القائمة بالأعلى.</li>';
+          $("otot").textContent = t;
+          return t;
+        }
+        document.querySelectorAll("input[name=ty]").forEach(function (r) {
+          r.onchange = function () {
+            $("oaw").hidden =
+              document.querySelector("input[name=ty]:checked").value !==
+              "توصيل";
+          };
+        });
+        $("osend").onclick = function () {
+          var t = draw(),
+            e = $("oerr"),
+            ty = document.querySelector("input[name=ty]:checked").value,
+            nm = $("on").value.trim(),
+            ph = $("op").value.trim(),
+            ad = $("oa").value.trim();
+          if (!t) {
+            e.textContent = "أضف صنفًا واحدًا على الأقل إلى السلة.";
+            return;
+          }
+          if (!nm) {
+            e.textContent = "اكتب اسمك.";
+            return;
+          }
+          if (!/^01\d{9}$/.test(ph)) {
+            e.textContent = "اكتب رقم موبايل صحيحًا من 11 رقمًا يبدأ بـ 01.";
+            return;
+          }
+          if (ty === "توصيل" && !ad) {
+            e.textContent = "اكتب عنوان التوصيل.";
+            return;
+          }
+          e.textContent = "";
+          var no = Math.floor(1000 + Math.random() * 9000),
+            k = $("ook");
+          k.hidden = false;
+          k.textContent =
+            "تم استلام طلبك رقم #" +
+            no +
+            " يا " +
+            nm +
+            ". الإجمالي " +
+            t +
+            " ج (" +
+            ty +
+            "). سنتصل بك على " +
+            ph +
+            " للتأكيد.";
+          it.forEach(function (x) {
+            x.q = 0;
+          });
+          document.querySelectorAll(".qty b").forEach(function (b) {
+            b.textContent = 0;
+          });
+          draw();
+        };
+        draw();
+      })();
+    </script>
+  </body>
+</html>
