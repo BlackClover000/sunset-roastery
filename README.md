@@ -2,9 +2,8 @@
 
 موقع لمحمصة قهوة بنظام طلب تفاعلي، متجاوب بالكامل ويدعم العربية (RTL) والـ Dark Mode.
 
-🔗 **Live Demo:** https://blackclover000.github.io/sunset-roastery/ Last deployed by @BlackClover000 B
+🔗 **Live Demo:** [https://blackclover000.github.io/sunset-roastery/]
 
-![Home](screenshots/home.png)
 
 ## المميزات
 - تصميم عربي RTL متجاوب مع الموبايل والكمبيوتر
