@@ -4,6 +4,7 @@
 
 🔗 **Live Demo:** [https://blackclover000.github.io/sunset-roastery/]
 
+![Home]( images/لقطة%20شاشة%202026-10-22%20141621.png )
 
 ## المميزات
 - تصميم عربي RTL متجاوب مع الموبايل والكمبيوتر
@@ -19,7 +20,7 @@ HTML5 · CSS3 (Grid, Flexbox, Variables) · Vanilla JavaScript
 ## لقطات الشاشة
 | القائمة | السلة | الموبايل |
 |---|---|---|
-| ![](screenshots/menu.png) | ![](screenshots/cart.png) | ![](screenshots/mobile.png) |
+| ![](images/لقطة%20شاشة%202026-10-22%20141707.png) | ![](images/لقطة%20شاشة%202026-10-22%20141753.png) | ![](images/لقطة%20شاشة%202026-10-22%20141822.png) |
 
 ## ملاحظة
 نظام الطلب هنا عرض توضيحي (Front-end فقط) ولا يحفظ البيانات.
